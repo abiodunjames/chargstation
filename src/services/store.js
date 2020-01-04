@@ -26,9 +26,11 @@ const poi = {
 
         const location = { lat: position.coords.latitude, lng: position.coords.longitude}
             state.commit("updatePosition", location);  
+            
             params.latitude = location.lat;
             params.longitude = location.lng;
             const stations = await api.poi(params);
+            
             state.commit("updateStations", stations.data);
             state.commit("updateLoading", false);
         })

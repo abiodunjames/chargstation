@@ -10,7 +10,7 @@ const mapSettings = {
   zoomControlOptions: {
     style: "SMALL"
   },
-  zoom: 8,
+  zoom: 13,
   minZoom: 4,
   maxZoom: 40,
   styles:themes

@@ -1,7 +1,6 @@
 <template>
   <div>
-  <Loading v-if="loading"/>
-  <Layout v-if="!loading">
+  <Layout>
     <template v-slot:nav>
       <Nav />
     </template>
@@ -11,7 +10,7 @@
     </template>
 
     <template v-slot:sidebar>
-      <LocationList :stations="stations" />
+      <LocationList :stations="stations" v-if="!loading"/>
     </template>
   </Layout>
   </div>
@@ -19,7 +18,6 @@
 
 <script>
 import Layout from "../components/layouts/Home";
-import Loading from "../components/layouts/Loading"
 import Map from "../components/Map";
 import LocationList from "../components/LocationList";
 import Nav from "../components/Navigation";
@@ -32,7 +30,6 @@ export default {
     Layout,
     Map,
     Nav,
-    Loading,
     LocationList
   },
    async mounted() {
