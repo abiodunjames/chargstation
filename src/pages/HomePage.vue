@@ -6,7 +6,8 @@
     </template>
 
     <template v-slot:map>
-      <Map :stations="stations" />
+      <!-----using key to ensure map is re-rendered when stations changes--->
+      <Map :stations="stations" :key="loading" />
     </template>
 
     <template v-slot:sidebar>
@@ -38,7 +39,6 @@ export default {
   computed: {
     ...mapGetters(["stations", "loading"])
   },
-
   methods: {
     ...mapActions(["getStations"])
   }
