@@ -1,11 +1,21 @@
 import Vuex from "vuex";
 import api from "./api";
 import Vue from "vue";
+import VuexPersist from 'vuex-persist';
+
+const vuexLocalStorage = new VuexPersist({
+  key: 'chargestation', 
+  storage: window.localStorage,
+  reducer: state => ({
+    stations: state.stations,
+    position: state.position
+  })
+})
 
 const poi = {
   state: {
     stations: [],
-    position: {},
+    position: {lat:4.352130,lng:50.845926},
     loading: true
   },
   mutations: {
@@ -47,7 +57,9 @@ const poi = {
     position: state => {
         return state.position
     }
-  }
+  },
+  plugins: [vuexLocalStorage.plugin]
+
 };
 
 Vue.use(Vuex);

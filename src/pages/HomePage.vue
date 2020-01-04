@@ -10,7 +10,7 @@
     </template>
 
     <template v-slot:sidebar>
-      <LocationList :stations="stations" v-if="!loading"/>
+      <LocationList :stations="stations" v-if="stations.length > 0"/>
     </template>
   </Layout>
   </div>

@@ -18,7 +18,7 @@
 import GoogleMapLoader from "./GoogleMapLoader";
 import GoogleMapMarker from "./GoogleMarker";
 import mapSettings from "./../constants/mapSettings";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
@@ -46,9 +46,20 @@ export default {
           title: item.AddressInfo.Title,
           position: {
             lat: item.AddressInfo.Latitude,
-            lng: item.AddressInfo.Longitude,
+            lng: item.AddressInfo.Longitude
           }
         };
+      });
+    }
+  },
+  mounted(){
+    this.watchPosition()
+  },
+  methods: {
+    ...mapActions(["getStations"]),
+    watchPosition() {
+      navigator.geolocation.watchPosition(() => {
+        this.getStations();
       });
     }
   }
