@@ -1,19 +1,19 @@
 <template>
   <div>
-  <Layout>
-    <template v-slot:nav>
-      <Nav />
-    </template>
+    <Layout>
+      <template v-slot:nav>
+        <Nav />
+      </template>
 
-    <template v-slot:map>
-      <!-----using key to ensure map is re-rendered when stations changes--->
-      <Map :stations="stations" :key="loading" />
-    </template>
+      <template v-slot:map>
+        <!-----using key to ensure map is re-rendered when stations changes--->
+        <Map :stations="stations" :key="rerender" />
+      </template>
 
-    <template v-slot:sidebar>
-      <LocationList :stations="stations" v-if="stations.length > 0"/>
-    </template>
-  </Layout>
+      <template v-slot:sidebar>
+        <LocationList :stations="stations" v-if="stations.length > 0" />
+      </template>
+    </Layout>
   </div>
 </template>
 
@@ -33,7 +33,12 @@ export default {
     Nav,
     LocationList
   },
-   async mounted() {
+  data() {
+    return {
+      rerender: 0
+    };
+  },
+  async mounted() {
     await this.getStations();
   },
   computed: {

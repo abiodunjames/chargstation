@@ -18,7 +18,7 @@
 import GoogleMapLoader from "./GoogleMapLoader";
 import GoogleMapMarker from "./GoogleMarker";
 import mapSettings from "./../constants/mapSettings";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters} from "vuex";
 
 export default {
   components: {
@@ -52,17 +52,6 @@ export default {
       });
     }
   },
-  mounted(){
-    this.watchPosition()
-  },
-  methods: {
-    ...mapActions(["getStations"]),
-    watchPosition() {
-      navigator.geolocation.watchPosition(() => {
-        this.getStations();
-      });
-    }
-  }
 };
 </script>
 <style scoped>

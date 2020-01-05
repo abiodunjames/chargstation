@@ -1,7 +1,15 @@
+function geolocation(callback) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      callback(position);
+    });
+  } else {
+    handleLocationError();
+  }
+}
 
-export default  navigator.geolocation.getCurrentPosition(position => {
-    return {
-     lat: position.coords.latitude,
-     lng: position.coords.longitude
-   }
-})
+function handleLocationError() {
+  alert("geolocation is disabled");
+}
+
+export default geolocation;
