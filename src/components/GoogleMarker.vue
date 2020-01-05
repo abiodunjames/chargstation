@@ -63,7 +63,7 @@ export default {
 
     watchPosition() {
       navigator.geolocation.watchPosition(() => {
-        this.getStations();
+        //this.getStations();
       });
     },
     infoBoxContent(marker) {
