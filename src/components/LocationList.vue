@@ -1,5 +1,5 @@
 <template>
-  <b-row class="col-4 rowoverlay">
+  <b-row class="col-4 rowoverlay d-none d-md-block">
     <div class="side-bar">
         <h5>Top Charging Outlets Near Me</h5>
         <hr/>

@@ -11,7 +11,7 @@
       </template>
 
       <template v-slot:sidebar>
-        <LocationList :stations="stations" v-if="false" />
+        <LocationList :stations="stations" />
       </template>
     </Layout>
   </div>

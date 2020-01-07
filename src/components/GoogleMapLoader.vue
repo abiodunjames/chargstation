@@ -20,7 +20,6 @@ export default {
     return {
       google: null,
       map: null,
-      height: "600px"
     };
   },
 
