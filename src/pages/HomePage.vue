@@ -7,7 +7,8 @@
 
       <template v-slot:map>
         <!-----using key to ensure map is re-rendered when stations changes--->
-        <Map :stations="stations" :key="rerender" />
+        <Map :stations="stations" v-if="!!stations > 0 " />
+        <Loading v-if="!stations" />
       </template>
 
       <template v-slot:sidebar>
@@ -22,6 +23,7 @@ import Layout from "../components/layouts/Home";
 import Map from "../components/Map";
 import LocationList from "../components/LocationList";
 import Nav from "../components/Navigation";
+import Loading from "../components/layouts/Loading"
 
 import { mapActions, mapGetters } from "vuex";
 
@@ -31,7 +33,8 @@ export default {
     Layout,
     Map,
     Nav,
-    LocationList
+    LocationList,
+    Loading
   },
   data() {
     return {

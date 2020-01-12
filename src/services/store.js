@@ -14,7 +14,8 @@ const vuexLocalStorage = new VuexPersist({
 
 const poi = {
   state: {
-    stations: [],
+    firstRun: true,
+    stations: null,
     position: {lat:4.352130,lng:50.845926},
     loading: true
   },

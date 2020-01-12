@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container>
     <b-row>
       <b-col align-self="center">
         <div class="loader">
